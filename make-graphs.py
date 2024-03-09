@@ -1,9 +1,20 @@
+#!/usr/bin/env python3
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import argparse
 
-# Set the directory path to the current directory or specify your path
-directory_path = '.'
+# Set up argument parsing
+parser = argparse.ArgumentParser(description='Generate a horizontal boxplot for CSV files.')
+parser.add_argument('--directory', default='.', help='Directory path containing CSV files. Default is the current directory.')
+parser.add_argument('--heading', default='', help='The heading for the boxplot graph. Default is empty.')
+
+# Parse command line arguments
+args = parser.parse_args()
+
+# Use the directory path and heading provided by the user (or defaults)
+directory_path = args.directory
+graph_heading = args.heading
 
 # Initialize a list to store the data from each CSV file
 data_list = []
@@ -31,7 +42,7 @@ if data_list:
     # Generate a horizontal boxplot
     plt.figure(figsize=(10, 6))
     plt.boxplot(data_list, labels=labels, vert=False, patch_artist=True)
-    plt.title('Boxplot for CSV Files')
+    plt.title(graph_heading)
     plt.xlabel('Value')
     plt.tight_layout()
 
