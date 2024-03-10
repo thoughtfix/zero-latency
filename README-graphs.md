@@ -1,4 +1,4 @@
-# make-grapys.py overview
+# make-graphs.py overview
 
 This Python script generates horizontal boxplots from CSV files located in a specified directory. It allows customization of the plot's heading, the sorting of boxplots by data average or filename alphabetically, and direction of sorting. The script outputs the plot as a PNG image file.
 
